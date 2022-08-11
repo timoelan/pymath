@@ -1,6 +1,7 @@
 # pymath
-Learning python with simple math tools
-That was my first Pyhton project and it's also my first project on GitHub :smiley:
+Learning python with simple math tools.
+
+That is my first Pyhton project and it's also my first project on GitHub :smiley:
 
 ## Usage
 
