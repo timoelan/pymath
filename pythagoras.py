@@ -3,6 +3,20 @@ from math import sqrt
 
 from sys import argv
 
+HEADER = '\033[95m'
+OKBLUE = '\033[94m'
+OKCYAN = '\033[96m'
+OKGREEN = '\033[92m'
+WARNING = '\033[93m'
+FAIL = '\033[91m'
+ENDC = '\033[0m'
+BOLD = '\033[1m'
+UNDERLINE = '\033[4m'
+
+
+def bluetext(text):
+    return f'{OKBLUE}{text}{ENDC}'
+
 
 def main():
 
@@ -11,7 +25,7 @@ def main():
     b = None
     c = None
 
-    print('Eingabe:')
+    print(bluetext('Eingabe:'))
 
     for v in argv[1:]:
         m = v.split('=')
@@ -31,7 +45,7 @@ def main():
     if c is not None:
         print(c)
 
-    print('Berechnet:')
+    print(bluetext('Ausgabe:'))
 
     if a is not None and b is not None:
         c = calculate_c(a, b)
