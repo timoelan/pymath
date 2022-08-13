@@ -1,6 +1,6 @@
 
 from math import sqrt
-
+from emoji import emojize
 from sys import argv
 
 HEADER = '\033[95m'
@@ -64,6 +64,8 @@ def main():
 
     h = calculate_h(A, c)
     print(f'Höhe: {h}')
+
+    print(bluetext(emojize('Great Jop:thumbs_up:')))
 
 
 def calculate_c(a, b):
