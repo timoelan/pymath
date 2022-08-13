@@ -1,3 +1,4 @@
+
 from math import sqrt
 
 from sys import argv
@@ -10,6 +11,8 @@ def main():
     b = None
     c = None
 
+    print('Eingabe:')
+
     for v in argv[1:]:
         m = v.split('=')
         if m[0] == 'a':
@@ -19,17 +22,28 @@ def main():
         if m[0] == 'c':
             c = float(m[1])
 
+    if a is not None:
+        print(a)
+
+    if b is not None:
+        print(b)
+
+    if c is not None:
+        print(c)
+
+    print('Berechnet:')
+
     if a is not None and b is not None:
         c = calculate_c(a, b)
-        print(c)
+        print(f'Variable c: {c}')
 
     elif c is not None and b is not None:
         a = calculate_a(b, c)
-        print(a)
+        print(f'Variable a: {a}')
 
     elif c is not None and a is not None:
         b = calculate_b(a, c)
-        print(b)
+        print(f'Variable b: {b}')
 
     A = calculate_A(a, b)
     print(f'Fläche: {A}')
