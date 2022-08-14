@@ -1,4 +1,5 @@
 
+from cmath import e
 from math import sqrt
 from emoji import emojize
 from sys import argv
@@ -16,6 +17,10 @@ UNDERLINE = '\033[4m'
 
 def bluetext(text):
     return f'{OKBLUE}{text}{ENDC}'
+
+
+def error(message):
+    return f'{WARNING}{message}{ENDC}'
 
 
 def main():
@@ -52,10 +57,12 @@ def main():
         print(f'Variable c: {c}')
 
     elif c is not None and b is not None:
+
         a = calculate_a(b, c)
         print(f'Variable a: {a}')
 
     elif c is not None and a is not None:
+
         b = calculate_b(a, c)
         print(f'Variable b: {b}')
 
@@ -69,14 +76,19 @@ def main():
 
 
 def calculate_c(a, b):
+
     return sqrt(a*a + b*b)
 
 
 def calculate_a(b, c):
+    if c <= b:
+        raise Exception('C cant be smaler than b')
     return sqrt(c*c - b*b)
 
 
 def calculate_b(a, c):
+    if c <= a:
+        raise Exception('C cant be smaler than a')
     return sqrt(c*c - a*a)
 
 
@@ -89,4 +101,7 @@ def calculate_h(A, c):
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except Exception as e:
+        print(error(f'Error: {e}'))
