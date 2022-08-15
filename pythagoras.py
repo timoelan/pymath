@@ -130,7 +130,7 @@ def calculate_A(c, h):
     return (c*h/2)
 
 
-def calculate_c(A, h):
+def calculate_c_from_h_and_A(A, h):
     return (A*2/h)
 
 
