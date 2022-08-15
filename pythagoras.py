@@ -1,5 +1,4 @@
 
-from cmath import e
 from math import sqrt
 from emoji import emojize
 from sys import argv
@@ -29,6 +28,8 @@ def main():
     a = None
     b = None
     c = None
+    h = None
+    A = None
 
     print(bluetext('Eingabe:'))
 
@@ -40,6 +41,10 @@ def main():
             b = float(m[1])
         if m[0] == 'c':
             c = float(m[1])
+        if m[0] == 'h':
+            h = float(m[1])
+        if m[0] == 'A':
+            A = float(m[1])
 
     if a is not None:
         print(a)
@@ -50,27 +55,48 @@ def main():
     if c is not None:
         print(c)
 
+    if h is not None:
+        print(h)
+
+    if A is not None:
+        print(A)
+
     print(bluetext('Ausgabe:'))
 
-    if a is not None and b is not None:
-        c = calculate_c(a, b)
-        print(f'Variable c: {c}')
+    if A is not None and h is not None:
 
-    elif c is not None and b is not None:
+        c = calculate_c(A, h)
+        print(f'Länge c: {c}')
+
+    if a is not None and b is not None:
+
+        c = calculate_c(a, b)
+        print(f'Länge c: {c}')
+
+    if c is not None and b is not None:
 
         a = calculate_a(b, c)
-        print(f'Variable a: {a}')
+        print(f'Länge a: {a}')
 
-    elif c is not None and a is not None:
+    if c is not None and a is not None:
 
         b = calculate_b(a, c)
-        print(f'Variable b: {b}')
+        print(f'Länge b: {b}')
 
-    A = calculate_A(a, b)
-    print(f'Fläche: {A}')
+    if c is not None and h is not None:
 
-    h = calculate_h(A, c)
-    print(f'Höhe: {h}')
+        A = calculate_A(c, h)
+        print(f'Fläche: {A}')
+
+    if a is not None and b is not None:
+
+        A = calculate_A(a, b)
+        print(f'Fläche: {A}')
+
+    if A is not None and c is not None:
+
+        h = calculate_h(A, c)
+        print(f'Höhe: {h}')
 
     print(bluetext(emojize('Great Jop:thumbs_up:')))
 
@@ -98,6 +124,14 @@ def calculate_A(a, b):
 
 def calculate_h(A, c):
     return (A*2/c)
+
+
+def calculate_A(c, h):
+    return (c*h/2)
+
+
+def calculate_c(A, h):
+    return (A*2/h)
 
 
 if __name__ == '__main__':
